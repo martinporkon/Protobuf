@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package common;// this for proto
+// java plugin for grpc and proto
+option java_multiple_files = true;
+option java_package = "com.test.models";//this for java
+
+message Car {
+  string make = 1;// field
+  string model = 2;// field
+  int32 year= 3;// field
+  // now we are going to include the body style in the Car
+  BodyStyle body_style = 4;
+}
+
+enum BodyStyle {
+  UNKNOWN = 0;
+  SEDAN = 1;
+  COUPE = 2;
+  SUV = 3;
+}

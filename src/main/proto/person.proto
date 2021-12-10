@@ -1,0 +1,38 @@
+// proto 1 was internal google version
+// in proto 2 we must define, required, repeated, or optional
+// proto 3 is the current version
+
+syntax = "proto3";
+
+import "common/address.proto";
+import "common/car.proto";
+import "google/protobuf/wrappers.proto";
+
+// java plugin for grpc and proto
+option java_multiple_files = true;
+option java_package = "com.test.models";
+
+/*
+
+This is my person proto file
+
+ */
+
+message Person {
+  string name = 1;
+  google.protobuf.Int32Value age = 2;// google.protobuf.Int32Value is int32 wrapper value
+  //google.protobuf.StringValue etc
+  common.Address address = 3;// we need the package name as well
+  repeated common.Car car =  4;// collection of cars
+}
+
+// protoc  protoc --js_out=./ person.proto
+
+// scalar types
+
+// protobuf-s support collections and a map as well
+
+// in java we have primitive types and wrapper types
+
+// community recommends 1 - 15 for frequently used fields and 16 - 2047 for not so frequently used fields
+// 19000 - 19999 - is reserved, some kind of plugins use the numbers

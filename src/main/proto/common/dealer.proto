@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "common/car.proto";
+
+// java plugin for grpc and proto
+option java_multiple_files = true;
+option java_package = "com.test.models";//this for java
+
+message Dealer {
+  map<int32, common.Car> model = 1;// common.Car <- with a package name
+}

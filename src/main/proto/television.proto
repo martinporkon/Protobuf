@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+// java plugin for grpc and proto
+option java_multiple_files = true;
+option java_package = "com.test.models";
+
+// v1
+/*message Television {
+  string brand = 1;
+  int32 year = 2;
+}*/
+
+// v2
+message Television {
+  string brand = 1;
+  int32 model = 2;// year is confusing
+  Type type = 3;
+}
+
+// v3
+/*message Television {
+  string brand = 1;
+  Type type = 3;
+}*/
+
+// v4
+/*message Television {
+  string brand = 1;
+
+  reserved 2 to 14;// can't used numbers
+  reserved "year", "model";// and can't use names
+
+  int32 price = 2;
+  Type type = 3;
+}*/
+
+
+enum Type {
+  UNKNOWN = 0;
+  HD = 1;
+  UHD = 2;
+  OLED = 3;
+}

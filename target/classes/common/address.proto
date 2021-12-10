@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package common;// this for proto
+// java plugin for grpc and proto
+option java_multiple_files = true;
+option java_package = "com.test.models";//this for java
+
+message Address {
+  int32 postbox = 1;
+  string street = 2;
+  string city = 3;
+}
